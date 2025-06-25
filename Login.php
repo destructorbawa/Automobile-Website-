@@ -40,7 +40,7 @@ if (isset($_POST['loginSubmit'])) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
-            echo "<script>alert('Login successful!'); window.location.href='homepage.html';</script>";
+            echo "<script>alert('Login successful!'); window.location.href='index.html';</script>";
         } else {
             echo "<script>alert('Invalid password!');</script>";
         }
