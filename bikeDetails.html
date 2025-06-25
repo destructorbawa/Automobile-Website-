@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bike Details</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #222;
+      color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .bike-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .bike-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .bike-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+    .bike-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+    }
+    .bike-info h2 {
+      font-size: 32px;
+      color: #FFD700;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .bike-info p {
+      font-size: 18px;
+      margin: 0;
+    }
+    .bike-info p span {
+      font-weight: bold;
+      color: #FFD700;
+    }
+    .highlight-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin: 20px 0;
+    }
+    .highlight-section h3 {
+      font-size: 24px;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .highlight-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .highlight-section ul li {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    .highlight-section ul li span {
+      font-weight: bold;
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="bike-header">
+      <div class="bike-image">
+        <img id="bikeImage" alt="Bike Image">
+      </div>
+      <div class="bike-info">
+        <h2 id="bikeName"></h2>
+        <p><span>Price:</span> <span id="bikePrice"></span></p>
+        <p><span>Mileage:</span> <span id="bikeMileage"></span></p>
+        <p><span>Color:</span> <span id="bikeColor"></span></p>
+        <p><span>Model:</span> <span id="bikeModel"></span></p>
+        <p><span>Variant:</span> <span id="bikeVariant"></span></p>
+        <p><span>Company:</span> <span id="bikeCompany"></span></p>
+      </div>
+    </div>
+
+    <div class="highlight-section">
+      <h3>Why Choose This Bike?</h3>
+      <ul>
+        <li><span>Premium Quality:</span> High-performance bike crafted for excellence.</li>
+        <li><span>Efficient Mileage:</span> Designed for optimal fuel efficiency.</li>
+        <li><span>Trusted Brand:</span> Manufactured by a renowned company.</li>
+        <li><span>Modern Features:</span> Equipped with cutting-edge technology.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+  const bikes = {
+    1: {
+      name: "Suzuki GSX 150",
+      price: "6.2 Lakh",
+      mileage: "35 km/l",
+      color: "Blue",
+      model: "2021",
+      variant: "Standard",
+      company: "Suzuki",
+      image: "Images/bike1.jpg"
+    },
+    2: {
+      name: "Yamaha YBR 125G",
+      price: "4.5 Lakh",
+      mileage: "40 km/l",
+      color: "Red",
+      model: "2020",
+      variant: "Sport",
+      company: "Yamaha",
+      image: "Images/bike2.jpg"
+    },
+    3: {
+      name: "Honda Cd 70",
+      price: "1.2 Lakh",
+      mileage: "55 km/l",
+      color: "Black",
+      model: "2019",
+      variant: "Standard",
+      company: "Honda",
+      image: "Images/bike3.jpg"
+    },
+    4: {
+      name: "Honda Cd 125",
+      price: "2.3 Lakh",
+      mileage: "50 km/l",
+      color: "Silver",
+      model: "2021",
+      variant: "Sport",
+      company: "Honda",
+      image: "Images/bike4.jpg"
+    },
+    5: {
+      name: "Kawasaki H2R",
+      price: "60 Lakh",
+      mileage: "15 km/l",
+      color: "Green",
+      model: "2023",
+      variant: "Racing",
+      company: "Kawasaki",
+      image: "Images/bike5.jpg"
+    },
+    6: {
+      name: "Suzuki Hayabusa",
+      price: "80 Lakh",
+      mileage: "18 km/l",
+      color: "White",
+      model: "2022",
+      variant: "Sport",
+      company: "Suzuki",
+      image: "Images/bike6.jpg"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const bikeId = params.get("id");
+  const bike = bikes[bikeId];
+
+  if (bike) {
+    document.getElementById("bikeImage").src = bike.image;
+    document.getElementById("bikeName").textContent = bike.name;
+    document.getElementById("bikePrice").textContent = `Price: ${bike.price}`;
+    document.getElementById("bikeMileage").textContent = `Mileage: ${bike.mileage}`;
+    document.getElementById("bikeColor").textContent = `Color: ${bike.color}`;
+    document.getElementById("bikeModel").textContent = `Model: ${bike.model}`;
+    document.getElementById("bikeVariant").textContent = `Variant: ${bike.variant}`;
+    document.getElementById("bikeCompany").textContent = `Company: ${bike.company}`;
+  } else {
+    document.querySelector(".bike-details").innerHTML = "<h2>Bike not found</h2>";
+  }
+  </script>
+</body>
+</html>

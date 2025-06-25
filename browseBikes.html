@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Bikes</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('Images/homeback.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #222;
+      color: #fff;
+      position: relative;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .navbar {
+      background-color: rgba(20, 20, 20, 0.9);
+      overflow: hidden;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .container {
+      padding: 120px 20px;
+      text-align: center;
+    }
+    .motivation {
+      font-size: 24px;
+      color: #FFD700;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .title {
+      font-size: 36px;
+      color: #FFD700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .search-box {
+      margin-bottom: 20px;
+      position: absolute;
+      right: 20px;
+      top: 120px;
+      width: 200px; /* Reduced width */
+    }
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+    }
+    .bike-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .bike-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .bike-card img {
+      width: 100%;
+      height: 250px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .bike-card:hover {
+      transform: scale(1.05);
+    }
+    .bike-card h3, .bike-card p {
+      color: #fff; /* Change text color to white */
+    }
+    .bike-card h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .bike-card p {
+      font-size: 16px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="navbar">
+  <a href="homepage.html">Home</a>
+  <a href="browseCars.html">Buy Cars</a>
+  <a href="sellCars.html">Sell Cars</a>
+  <a href="browseBikes.html">Buy Bikes</a>
+  <a href="sellBikes.html">Sell Bikes</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<div class="container">
+  <div class="motivation">Find the perfect bike for your next adventure!</div>
+  <h2 class="title">Available Bikes</h2>
+  
+  <!-- Search Box -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Bikes..." onkeyup="searchBikes()">
+  </div>
+
+  <!-- Bike Grid -->
+  <div class="bike-grid" id="bikeGrid">
+    <div class="bike-card" data-name="Suzuki GSX 150">
+      <a href="bikeDetails.html?id=1">
+        <img src="Images/bike1.jpg" alt="Bike 1">
+        <h3>Suzuki GSX 150</h3>
+        <p>Price: 6.2 Lakh</p>
+      </a>
+    </div>
+    <div class="bike-card" data-name="Yamaha YBR 125G">
+      <a href="bikeDetails.html?id=2">
+        <img src="Images/bike2.jpg" alt="Bike 2">
+        <h3>Yamaha YBR 125G</h3>
+        <p>Price: 4.5 Lakh</p>
+      </a>
+    </div>
+    <div class="bike-card" data-name="Honda Cd 70">
+      <a href="bikeDetails.html?id=3">
+        <img src="Images/bike3.jpg" alt="Bike 3">
+        <h3>Honda Cd 70</h3>
+        <p>Price: 1.2 Lakh</p>
+      </a>
+    </div>
+    <div class="bike-card" data-name="Honda Cd 125">
+      <a href="bikeDetails.html?id=4">
+        <img src="Images/bike4.jpg" alt="Bike 4">
+        <h3>Honda Cd 125</h3>
+        <p>Price: 2.3 Lakh</p>
+      </a>
+    </div>
+    <div class="bike-card" data-name="Kawasaki H2R">
+      <a href="bikeDetails.html?id=5">
+        <img src="Images/bike5.jpg" alt="Bike 5">
+        <h3>Kawasaki H2R</h3>
+        <p>Price: 60 Lakh</p>
+      </a>
+    </div>
+    <div class="bike-card" data-name="Suzuki Hayabusa">
+      <a href="bikeDetails.html?id=6">
+        <img src="Images/bike6.jpg" alt="Bike 6">
+        <h3>Suzuki Hayabusa</h3>
+        <p>Price: 80 Lakh</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function searchBikes() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let bikeGrid = document.getElementById("bikeGrid");
+    let bikes = bikeGrid.getElementsByClassName("bike-card");
+
+    for (let i = 0; i < bikes.length; i++) {
+      let bike = bikes[i];
+      let bikeName = bike.getAttribute("data-name").toLowerCase();
+
+      if (bikeName.indexOf(input) > -1) {
+        bike.style.display = "";
+      } else {
+        bike.style.display = "none";
+      }
+    }
+  }
+</script>
+
+</body>
+</html>

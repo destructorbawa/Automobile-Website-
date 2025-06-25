@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Car</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('Images/homeback.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: rgba(20, 20, 20, 0.9);
+      overflow: hidden;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      color: #fff;
+    }
+
+    .motivation-message {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffcc00;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    input[type="file"] {
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    .invalid {
+      border-color: red;
+    }
+
+    .valid {
+      border-color: green;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="homepage.html">Home</a>
+  <a href="browseCars.html">Buy Cars</a>
+  <a href="sellCars.html">Sell Cars</a>
+  <a href="browseBikes.html">Buy Bikes</a>
+  <a href="sellBikes.html">Sell Bikes</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<div class="container">
+  <div class="motivation-message">
+    Selling your car has never been easier! Enjoy a seamless, reliable experience and reach potential buyers quickly.
+  </div>
+  <h2>Sell Your Car</h2>
+  <form id="sellCarForm" action="#" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="brand">Brand:</label>
+      <select id="brand" name="brand" required>
+        <option value="">Select Brand</option>
+        <option value="suzuki">Suzuki</option>
+        <option value="toyota">Toyota</option>
+        <option value="honda">Honda</option>
+        <option value="ford">Ford</option>
+        <option value="nissan">Nissan</option>
+        <option value="chevrolet">Chevrolet</option>
+        <option value="bmw">BMW</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+        <option value="hyundai">Hyundai</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required pattern="^[A-Za-z\s]+$" title="Please enter a valid name" oninput="validateName()">
+    </div>
+    
+    <div class="form-group">
+      <label for="model">Model:</label>
+      <input type="text" id="model" name="model" required pattern="^[A-Za-z0-9\s]+$" title="Please enter a valid model" oninput="validateModel()">
+    </div>
+    
+    <div class="form-group">
+      <label for="registeredFrom">Registered From:</label>
+      <input type="text" id="registeredFrom" name="registeredFrom" required pattern="^[A-Za-z\s]+$" title="Please enter a valid registration location" oninput="validateRegisteredFrom()">
+    </div>
+    
+    <div class="form-group">
+      <label for="millage">Millage (in km):</label>
+      <input type="number" id="millage" name="millage" required min="0" max="999999" title="Please enter a valid mileage" oninput="validateMillage()">
+    </div>
+    
+    <div class="form-group">
+      <label for="color">Color:</label>
+      <input type="text" id="color" name="color" required pattern="^[A-Za-z\s]+$" title="Please enter a valid color" oninput="validateColor()">
+    </div>
+    
+    <div class="form-group">
+      <label for="transmission">Transmission:</label>
+      <select id="transmission" name="transmission" required>
+        <option value="">Select Transmission</option>
+        <option value="manual">Manual</option>
+        <option value="automatic">Automatic</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required oninput="validateDescription()"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required oninput="validateImage()">
+    </div>
+    
+    <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+  </form>
+</div>
+
+<script>
+  function validateName() {
+    const name = document.getElementById('name');
+    const regex = /^[A-Za-z\s]+$/;
+    if (regex.test(name.value)) {
+      name.classList.remove('invalid');
+      name.classList.add('valid');
+    } else {
+      name.classList.remove('valid');
+      name.classList.add('invalid');
+    }
+  }
+
+  function validateModel() {
+    const model = document.getElementById('model');
+    const regex = /^[A-Za-z0-9\s]+$/;
+    if (regex.test(model.value)) {
+      model.classList.remove('invalid');
+      model.classList.add('valid');
+    } else {
+      model.classList.remove('valid');
+      model.classList.add('invalid');
+    }
+  }
+
+  function validateRegisteredFrom() {
+    const registeredFrom = document.getElementById('registeredFrom');
+    const regex = /^[A-Za-z\s]+$/;
+    if (regex.test(registeredFrom.value)) {
+      registeredFrom.classList.remove('invalid');
+      registeredFrom.classList.add('valid');
+    } else {
+      registeredFrom.classList.remove('valid');
+      registeredFrom.classList.add('invalid');
+    }
+  }
+
+  function validateMillage() {
+    const millage = document.getElementById('millage');
+    if (millage.value >= 0 && millage.value <= 999999) {
+      millage.classList.remove('invalid');
+      millage.classList.add('valid');
+    } else {
+      millage.classList.remove('valid');
+      millage.classList.add('invalid');
+    }
+  }
+
+  function validateColor() {
+    const color = document.getElementById('color');
+    const regex = /^[A-Za-z\s]+$/;
+    if (regex.test(color.value)) {
+      color.classList.remove('invalid');
+      color.classList.add('valid');
+    } else {
+      color.classList.remove('valid');
+      color.classList.add('invalid');
+    }
+  }
+
+  function validateDescription() {
+    const description = document.getElementById('description');
+    if (description.value.trim() !== "") {
+      description.classList.remove('invalid');
+      description.classList.add('valid');
+    } else {
+      description.classList.remove('valid');
+      description.classList.add('invalid');
+    }
+  }
+
+  function validateImage() {
+    const image = document.getElementById('image');
+    if (image.files.length > 0) {
+      image.classList.remove('invalid');
+      image.classList.add('valid');
+    } else {
+      image.classList.remove('valid');
+      image.classList.add('invalid');
+    }
+  }
+
+  // Optional: Disable form submission if any field is invalid
+  document.getElementById('sellCarForm').addEventListener('input', function() {
+    const submitBtn = document.getElementById('submitBtn');
+    const formFields = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
+    const isFormValid = Array.from(formFields).every(field => field.classList.contains('valid'));
+    submitBtn.disabled = !isFormValid;
+  });
+
+</script>
+
+</body>
+</html>

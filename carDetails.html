@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Details</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #222;
+      color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .car-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .car-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .car-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+    .car-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+    }
+    .car-info h2 {
+      font-size: 32px;
+      color: #FFD700;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .car-info p {
+      font-size: 18px;
+      margin: 0;
+    }
+    .car-info p span {
+      font-weight: bold;
+      color: #FFD700;
+    }
+    .highlight-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin: 20px 0;
+    }
+    .highlight-section h3 {
+      font-size: 24px;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .highlight-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .highlight-section ul li {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    .highlight-section ul li span {
+      font-weight: bold;
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="car-header">
+      <div class="car-image">
+        <img id="carImage" alt="Car Image">
+      </div>
+      <div class="car-info">
+        <h2 id="carName"></h2>
+        <p><span>Price:</span> <span id="carPrice"></span></p>
+        <p><span>Mileage:</span> <span id="carMileage"></span></p>
+        <p><span>Color:</span> <span id="carColor"></span></p>
+        <p><span>Model:</span> <span id="carModel"></span></p>
+        <p><span>Variant:</span> <span id="carVariant"></span></p>
+        <p><span>Company:</span> <span id="carCompany"></span></p>
+      </div>
+    </div>
+
+    <div class="highlight-section">
+      <h3>Why Choose This Car?</h3>
+      <ul>
+        <li><span>Premium Quality:</span> Enjoy a high-performance vehicle crafted for excellence.</li>
+        <li><span>Efficient Mileage:</span> Designed for optimal fuel efficiency to save your costs.</li>
+        <li><span>Trusted Brand:</span> Manufactured by a company known for reliability and style.</li>
+        <li><span>Modern Features:</span> Equipped with advanced technology to enhance your driving experience.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+  const cars = {
+    1: {
+      name: "Suzuki Boss",
+      price: "12 Lakh",
+      mileage: "18 km/l",
+      color: "White",
+      model: "2022",
+      variant: "Standard",
+      company: "Suzuki",
+      image: "Images/car1.jpg"
+    },
+    2: {
+      name: "Honda Civic",
+      price: "60 Lakh",
+      mileage: "14 km/l",
+      color: "Black",
+      model: "2023",
+      variant: "Turbo",
+      company: "Honda",
+      image: "Images/car2.jpg"
+    },
+    3: {
+      name: "Toyota Hilux (Kala Dalla)",
+      price: "169 Lakh",
+      mileage: "10 km/l",
+      color: "Silver",
+      model: "2023",
+      variant: "Revo V",
+      company: "Toyota",
+      image: "Images/car3.jpg"
+    },
+    4: {
+      name: "BMW M5",
+      price: "4.5 Crore",
+      mileage: "9 km/l",
+      color: "Blue",
+      model: "2024",
+      variant: "Competition",
+      company: "BMW",
+      image: "Images/car4.jpg"
+    },
+    5: {
+      name: "Toyota Corolla",
+      price: "44 Lakh",
+      mileage: "16 km/l",
+      color: "Gray",
+      model: "2022",
+      variant: "Altis Grande",
+      company: "Toyota",
+      image: "Images/car5.jpg"
+    },
+    6: {
+      name: "Mercedes C63",
+      price: "3.7 Crore",
+      mileage: "8 km/l",
+      color: "Black",
+      model: "2023",
+      variant: "AMG",
+      company: "Mercedes-Benz",
+      image: "Images/car6.jpg"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const carId = params.get("id");
+  const car = cars[carId];
+
+  if (car) {
+    document.getElementById("carImage").src = car.image;
+    document.getElementById("carName").textContent = car.name;
+    document.getElementById("carPrice").textContent = `Price: ${car.price}`;
+    document.getElementById("carMileage").textContent = `Mileage: ${car.mileage}`;
+    document.getElementById("carColor").textContent = `Color: ${car.color}`;
+    document.getElementById("carModel").textContent = `Model: ${car.model}`;
+    document.getElementById("carVariant").textContent = `Variant: ${car.variant}`;
+    document.getElementById("carCompany").textContent = `Company: ${car.company}`;
+  } else {
+    document.querySelector(".car-details").innerHTML = "<h2>Car not found</h2>";
+  }
+</script>
+
+
+</body>
+</html>
