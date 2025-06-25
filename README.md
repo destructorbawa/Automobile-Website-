@@ -1,11 +1,30 @@
-# Automobile-Website-
+# Automobile Showcase Website
 ---
-Project Title: Automobile Showcase Website
+Live Preview: https://destructorbawa.github.io/Automobile-Website-
 
-Description: The Automobile Showcase Website is a dynamic and user-friendly platform designed to provide users with a seamless experience for browsing and exploring automobiles. The website features a secure login system to ensure user privacy and restrict access to authorized users only.
+Overview:
+The Automobile Showcase Website is a responsive and visually engaging web platform designed for users to seamlessly browse a curated collection of automobiles. With a focus on user experience and accessibility, the site features a secure login system that restricts access to authorized users, ensuring privacy and data integrity.
 
-Once logged in, users can access the "Browse Cars" page, which showcases a curated collection of vehicles displayed in a visually appealing 3x2 grid layout. The design includes a consistent background theme, offering an immersive and cohesive browsing experience. The project emphasizes simplicity, efficiency, and an intuitive user interface to make it accessible to all users.
+Key Features:
 
-The website is built using HTML, CSS, and JavaScript, with future plans to integrate database functionality for enhanced features like saving user preferences, managing car inventories, and adding interactive elements.
+Secure Login System: Ensures user authentication and privacy.
 
-This project demonstrates skills in web development, frontend design, and client-side scripting, serving as a foundation for more advanced systems in the future.
+Browse Cars Page: Displays automobiles in a clean 3x2 grid layout for easy viewing.
+
+Consistent UI/UX Design: Maintains a cohesive theme and layout across all pages.
+
+Front-End Stack: Built using HTML, CSS, and JavaScript.
+
+Future Enhancements: Plans to integrate backend/database support for user preferences, inventory management, and interactive functionality.
+
+Skills Demonstrated:
+
+Web development and responsive design
+
+Front-end implementation (HTML, CSS, JavaScript)
+
+UI/UX best practices and layout structuring
+
+Planning for scalable feature integration
+
+This project serves as a strong foundation for more advanced web systems, showcasing both technical capabilities and a user-centered approach to design.
